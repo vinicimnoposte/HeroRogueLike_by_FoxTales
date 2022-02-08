@@ -6,7 +6,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
-[CustomEditor(typeof(Readme))]
+[CustomEditor(typeof(Readme))] // ta dando erro isso aqui V
 [InitializeOnLoad]
 public class ReadmeEditor : Editor {
 	
@@ -43,7 +43,7 @@ public class ReadmeEditor : Editor {
 	}
 	
 	[MenuItem("Tutorial/Show Tutorial Instructions")]
-	static Readme SelectReadme() 
+	static Readme SelectReadme() //Coisa do cabrunco rsrs
 	{
 		var ids = AssetDatabase.FindAssets("Readme t:Readme");
 		if (ids.Length == 1)
