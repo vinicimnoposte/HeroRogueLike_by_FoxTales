@@ -30,17 +30,14 @@ public class TriggerTest : MonoBehaviour
                     Instantiate(Presets[x], new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 10f), Quaternion.identity);
                     Destroy(this.gameObject); //MWAHHAHAHAHAHAHAHAHAHAHHAHAHAHA SUCUMBA
                     //EU TO FICANDO INSANO KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-                    Debug.Log(x);
                     break;
                 case 1:
                     Instantiate(Presets[x], new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 10f), Quaternion.identity);
                     Destroy(this.gameObject);
-                    Debug.Log(x);
                     break;
                 case 2:
                     Instantiate(Presets[x], new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 10f), Quaternion.identity);
                     Destroy(this.gameObject);
-                    Debug.Log(x);
                     break;
                 
             }

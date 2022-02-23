@@ -17,7 +17,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3;
     Vector3 velocity;
-    bool isGrounded;
+    public GameObject Player;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -29,18 +29,20 @@ public class ThirdPersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // Debug.Log(Player.GetComponent<TestTriggerPlayer>().isGrounded);
         //jump
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //Player = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (Player.GetComponent<TestTriggerPlayer>().isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
             
         }
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+    
+        if (Input.GetButtonDown("Jump") && Player.GetComponent<TestTriggerPlayer>().isGrounded == true)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -8 * gravity);
+            Player.GetComponent<TestTriggerPlayer>().isGrounded = false;
         }
         //gravity
         velocity.y += gravity * Time.deltaTime;
@@ -71,4 +73,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
 
     }
+
+    //void OnTriggerStay(Collider other){
+    //    if(other.CompareTag("Terrain")){
+    //        Player = true;
+    //    }
+    //}
 }
